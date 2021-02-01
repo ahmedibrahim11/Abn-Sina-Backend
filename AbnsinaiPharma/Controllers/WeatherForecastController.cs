@@ -9,6 +9,7 @@ namespace AbnsinaiPharma.Controllers
 {
 	[ApiController]
 	[Route("[controller]")]
+	
 	public class WeatherForecastController : ControllerBase
 	{
 		private static readonly string[] Summaries = new[]
@@ -35,5 +36,7 @@ namespace AbnsinaiPharma.Controllers
 			})
 			.ToArray();
 		}
+
+		///////test//////////////////////////
 	}
 }
