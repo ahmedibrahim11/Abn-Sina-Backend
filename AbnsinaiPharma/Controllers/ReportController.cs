@@ -1,8 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AbnsinaiPharma.IServices;
+using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 
 namespace AbnsinaiPharma.Controllers
@@ -11,12 +9,26 @@ namespace AbnsinaiPharma.Controllers
     [ApiController]
     public class ReportController : ControllerBase
     {
+        private readonly IReportService _reportService;
+        public ReportController(IReportService reportService)
+        {
+            _reportService = reportService;
+
+        }
         // GET: api/<ValuesController>
         [HttpGet]
-        public IEnumerable<string> GetStockReportFile()
+        public IActionResult GetStockReportFile(string fileType, string fileName)
+        
         {
-            //testControler
-            return new string[] { "value1", "value2" };
+            var report = _reportService.GetReport("stock", "Daily_Sales_and_Stock_for_AL_ANDALOUS20210110080017.xlsx");
+            if(report == null)
+            {
+                return BadRequest();
+            }
+            else
+            {
+                return Ok(report);
+            }
         }
 
         // GET api/<ValuesController>/5
