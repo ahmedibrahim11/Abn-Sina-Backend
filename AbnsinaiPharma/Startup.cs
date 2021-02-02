@@ -33,6 +33,18 @@ namespace AbnsinaiPharma
 			services.AddTransient<IUnitOfWork, UnitOfWork>();
 			services.AddScoped<IReportService, ReportService>();
 
+
+
+				services.AddCors(options =>
+				{
+
+					options.AddPolicy("*", builder => builder.WithOrigins("*").AllowAnyHeader().AllowAnyMethod());
+
+				});
+
+
+			
+
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,6 +58,7 @@ namespace AbnsinaiPharma
 			app.UseHttpsRedirection();
 
 			app.UseRouting();
+			app.UseCors("*");
 			app.UseStaticFiles();
 
 			app.UseAuthorization();
