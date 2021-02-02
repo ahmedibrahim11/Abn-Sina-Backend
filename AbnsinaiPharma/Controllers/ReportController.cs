@@ -14,7 +14,6 @@ namespace AbnsinaiPharma.Controllers
             _reportService = reportService;
 
         }
-        // GET: api/<ValuesController>
         [HttpGet]
         public IActionResult GetStockReportFile(string fileType, string fileName)
         
