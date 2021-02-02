@@ -1,15 +1,13 @@
 ﻿using AbnsinaiPharma.IServices;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using System.IO;
-using System.Threading.Tasks;
 
 namespace AbnsinaiPharma.Services
 {
     public class ReportService : IReportService
     {
-        private IHostingEnvironment hostingEnv;
-        public ReportService(IHostingEnvironment env)
+        private IWebHostEnvironment hostingEnv;
+        public ReportService(IWebHostEnvironment env)
         {
             this.hostingEnv = env;
         }
