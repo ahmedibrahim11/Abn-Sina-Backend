@@ -1,6 +1,7 @@
 ﻿using AbnsinaiPharma.IServices;
 using Microsoft.AspNetCore.Mvc;
-
+using System;
+using System.IO;
 
 namespace AbnsinaiPharma.Controllers
 {
@@ -29,29 +30,21 @@ namespace AbnsinaiPharma.Controllers
             }
         }
 
-        // GET api/<ValuesController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
 
-        // POST api/<ValuesController>
-        [HttpPost]
-        public void Post([FromBody] string value)
+        [HttpGet("downloadFile")]
+        public FileStream downloadFile(string fileName)
         {
-        }
+            try
+            {
+                var currentDirectory = @"wwwroot\stock\";
+                var file = Path.Combine(currentDirectory, fileName);
+                return new FileStream(file, FileMode.Open, FileAccess.Read);
+            }
+            catch (Exception e)
+            {
 
-        // PUT api/<ValuesController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/<ValuesController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+                throw e;
+            }
         }
     }
 }
