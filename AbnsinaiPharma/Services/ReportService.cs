@@ -19,7 +19,7 @@ namespace AbnsinaiPharma.Services
             string FilePath = Path.Combine(hostingEnv.WebRootPath, fileType);
             string FileNameWithPath = Path.Combine(FilePath, fileName);
             //byte[] bytes = File.ReadAllBytes(FileNameWithPath);
-            return FileNameWithPaths;
+            return FileNameWithPath;
         }
     }
 }
