@@ -23,7 +23,6 @@ namespace AbnsinaiPharma.Controllers
         [HttpGet("downloadFile")]
         public FileStream downloadFile(string FileName, string ReportType)
         {
-        {
             try
             {
                 var currentDirectory = string.Concat(@"wwwroot\" ,ReportType,"/");
