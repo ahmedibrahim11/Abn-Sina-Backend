@@ -1,5 +1,4 @@
-﻿using AbnsinaiPharma.DTO;
-using AbnsinaiPharma.IServices;
+﻿using AbnsinaiPharma.IServices;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.IO;
